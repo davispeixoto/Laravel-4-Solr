@@ -9,7 +9,7 @@ class Laravel4SolrServiceProvider extends ServiceProvider {
 	 *
 	 * @var bool
 	 */
-	protected $defer = false;
+	protected $defer = true;
 
 	/**
 	 * Bootstrap the application events.
@@ -28,7 +28,14 @@ class Laravel4SolrServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+		$this->app->booting(function() {
+			$loader = \Illuminate\Foundation\AliasLoader::getInstance();
+			$loader->alias('Solr', 'Davispeixoto\LaravelSalesforce\Facades\Salesforce');
+		});
+		
+		$this->app['laravel-4-solr'] = $this->app->share(function($app) {
+			return new Solr($app['config']);
+		});
 	}
 
 	/**
@@ -38,7 +45,7 @@ class Laravel4SolrServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array();
+		return array('laravel-4-solr');
 	}
 
 }

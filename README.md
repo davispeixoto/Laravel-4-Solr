@@ -1,7 +1,7 @@
-Laravel 4 Salesforce
-====================
+Laravel 4 Apache Solr
+=====================
 
-This Laravel 4 package provides an interface for using [Salesforce CRM](http://www.salesforce.com/) API.
+This Laravel 4 package provides an interface for consuming (querying) [Apache Solr](https://lucene.apache.org/solr/) via its restful interface.
 
 Installation
 ------------
@@ -10,7 +10,7 @@ Begin by installing this package through Composer. Edit your project's `composer
 
 	"require": {
 		"laravel/framework": "4.1.*",
-		"davispeixoto/laravel-salesforce": "1.0.*"
+		"davispeixoto/laravel-4-solr": "1.0.*"
 	}
 
 Next, update Composer from the Terminal:
@@ -19,28 +19,32 @@ Next, update Composer from the Terminal:
 
 Once this operation completes, still in Terminal run:
 
-	php artisan config:publish davispeixoto/laravel-salesforce
+	php artisan config:publish davispeixoto/laravel-4-solr
 	
-Update the settings in the generated `app/config/packages/davispeixoto/laravel-salesforce` configuration file with your salesforce credentials.
+Update the settings in the generated `app/config/packages/davispeixoto/laravel-4-solr` configuration file with solr endpoint, port, output format.
 
 Finally add the service provider. Open `app/config/app.php`, and add a new item to the providers array.
 
-    'Davispeixoto\LaravelSalesforce\LaravelSalesforceServiceProvider'
+    'Davispeixoto\Laravel4Solr\Laravel4SolrServiceProvider'
 
 That's it! You're all set to go. Just use:
 
     Route::get('/test', function() {
-	try {
-	    	echo print_r(Salesforce::describeLayout('Account');
-	} catch (Exception $e) {
-		Log::error($e->getMessage());
-		die($e->getMessage() . $e->getTraceAsString());
-	}
+		try {
+	    	Solr::setCore('products');
+	    	Solr::setFQ('color:blue*');
+	    	Solr::outputFormat('json');
+	    	$results = Solr::getResults();
+	    	echo print_r($results , true);
+		} catch (Exception $e) {
+			Log::error($e->getMessage());
+			die($e->getMessage() . $e->getTraceAsString());
+		}
     });
 
 ### License
 
-This Salesforce Force.com Toolkit for PHP port is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+This library is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
 ### Versioning
 
