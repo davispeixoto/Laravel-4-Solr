@@ -1,0 +1,22 @@
+{
+    "name": "davispeixoto/laravel-4-solr",
+    "description": "Laravel 4 Apache Solr simple query client",
+    "keywords": ["laravel", "solr", "apache solr", "search engine", "laravel 4"],
+    "license" : "MIT",
+    "authors": [
+        {
+            "name": "Davis Peixoto",
+            "email": "davis.peixoto@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.1.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Davispeixoto\\Laravel4Solr\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
