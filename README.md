@@ -6,7 +6,7 @@ This Laravel 4 package provides an interface for consuming (querying) [Apache So
 Installation
 ------------
 
-Begin by installing this package through Composer. Edit your project's `composer.json` file to require `davispeixoto/laravel-salesforce`.
+Begin by installing this package through Composer. Edit your project's `composer.json` file to require `davispeixoto/laravel-4-solr`.
 
 	"require": {
 		"laravel/framework": "4.1.*",
@@ -32,7 +32,7 @@ That's it! You're all set to go. Just use:
     Route::get('/test', function() {
 		try {
 	    	Solr::setCore('products');
-	    	Solr::setFQ('color:blue*');
+	    	Solr::setFQ('color' , 'blue*');
 	    	Solr::outputFormat('json');
 	    	$results = Solr::getResults();
 	    	echo print_r($results , true);
