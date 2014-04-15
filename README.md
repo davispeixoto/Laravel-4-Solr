@@ -1,6 +1,8 @@
 Laravel 4 Apache Solr
 =====================
 
+[![Build Status](https://travis-ci.org/davispeixoto/Laravel-4-Solr.svg?branch=master)](https://travis-ci.org/davispeixoto/Laravel-4-Solr)
+
 This Laravel 4 package provides an interface for consuming (querying) [Apache Solr](https://lucene.apache.org/solr/) via its restful interface.
 
 Installation
