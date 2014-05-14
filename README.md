@@ -12,7 +12,7 @@ Begin by installing this package through Composer. Edit your project's `composer
 
 	"require": {
 		"laravel/framework": "4.1.*",
-		"davispeixoto/laravel-4-solr": "1.0.*"
+		"davispeixoto/laravel-4-solr": "dev-master"
 	}
 
 Next, update Composer from the Terminal:
