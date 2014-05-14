@@ -50,4 +50,4 @@ This library is open-sourced software licensed under the [MIT license](http://op
 
 ### Versioning
 
-This projetct follows the [Semantic Versioning](http://semver.org/)
+This project follows the [Semantic Versioning](http://semver.org/)
