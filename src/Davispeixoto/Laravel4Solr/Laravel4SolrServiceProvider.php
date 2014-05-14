@@ -1,4 +1,6 @@
-<?php namespace Davispeixoto\Laravel4Solr;
+<?php
+
+namespace Davispeixoto\Laravel4Solr;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -9,7 +11,7 @@ class Laravel4SolrServiceProvider extends ServiceProvider {
 	 *
 	 * @var bool
 	 */
-	protected $defer = true;
+	protected $defer = false;
 
 	/**
 	 * Bootstrap the application events.
@@ -18,7 +20,7 @@ class Laravel4SolrServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('davispeixoto/laravel4-solr');
+		$this->package('davispeixoto/laravel-4-solr');
 	}
 
 	/**
@@ -30,7 +32,7 @@ class Laravel4SolrServiceProvider extends ServiceProvider {
 	{
 		$this->app->booting(function() {
 			$loader = \Illuminate\Foundation\AliasLoader::getInstance();
-			$loader->alias('Solr', 'Davispeixoto\LaravelSalesforce\Facades\Salesforce');
+			$loader->alias('Solr', 'Davispeixoto\Laravel4Solr\Facades\Solr');
 		});
 		
 		$this->app['laravel-4-solr'] = $this->app->share(function($app) {

@@ -1,4 +1,6 @@
-<?php namespace Davispeixoto\Laravel4Solr;
+<?php
+
+namespace Davispeixoto\Laravel4Solr;
 
 use Illuminate\Config\Repository;
 
